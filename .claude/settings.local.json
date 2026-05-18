@@ -37,7 +37,19 @@
       "Bash(PORT=3400 npm run start)",
       "Bash(curl -s 'http://localhost:3400/')",
       "Bash(grep -oE 'videos\\\\.pexels\\\\.com[^\"\\\\\\\\]+')",
-      "Bash(grep -oE '[a-z0-9.]+\\\\.pexels\\\\.com[^\"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\,]+')"
+      "Bash(grep -oE '[a-z0-9.]+\\\\.pexels\\\\.com[^\"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\,]+')",
+      "Bash(curl -s \"https://mixkit.co/free-stock-video/city/\" --max-time 10)",
+      "Bash(curl -sL \"https://mixkit.co/free-stock-video/city/\" --max-time 10)",
+      "Bash(grep -oE '[0-9]{4,5}/[0-9]{4,5}-720')",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://mixkit.co/free-stock-video/city/\" --max-time 12)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://mixkit.co/free-stock-video/city/\" --max-time 12 -o /tmp/mixkit.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://mixkit.co/free-stock-video/fashion/\" --max-time 12 -o /tmp/mk_fashion.html)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://mixkit.co/free-stock-video/architecture/\" --max-time 12 -o /tmp/mk_arch.html)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://mixkit.co/free-stock-video/business/\" --max-time 12 -o /tmp/mk_biz.html)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://mixkit.co/free-stock-video/concert/\" --max-time 12 -o /tmp/mk_concert.html)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://mixkit.co/free-stock-video/abstract/\" --max-time 12 -o /tmp/mk_abstract.html)",
+      "Bash(PORT=3500 npm run start)"
     ]
   }
 }

@@ -3,6 +3,7 @@
 import { ChevronDown } from "lucide-react";
 import { Section } from "./Section";
 import { LazyVideo } from "@/components/motion/LazyVideo";
+import { MeshBackdrop } from "@/components/motion/MeshBackdrop";
 import { KineticType } from "@/components/motion/KineticType";
 import { Counter } from "@/components/motion/Counter";
 import { Reveal } from "@/components/motion/Reveal";
@@ -23,15 +24,12 @@ export function Hero() {
         className="absolute inset-0 h-full w-full"
       />
       <div
-        className="absolute inset-0 bg-linear-to-b from-ink/55 via-ink/35 to-ink"
+        className="absolute inset-0 bg-linear-to-b from-ink/65 via-ink/45 to-ink"
         aria-hidden
       />
+      <MeshBackdrop variant="warm" intensity="rich" />
       <div
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(201,162,74,0.22),transparent_55%)]"
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 mix-blend-overlay bg-[radial-gradient(ellipse_at_70%_30%,rgba(201,162,74,0.18),transparent_55%)]"
         aria-hidden
       />
 

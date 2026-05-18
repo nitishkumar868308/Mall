@@ -6,6 +6,7 @@ import { LazyVideo } from "@/components/motion/LazyVideo";
 import { Button } from "@/components/ui/Button";
 import { CapacityCalculator } from "@/components/events/CapacityCalculator";
 import { InquireDialog } from "@/components/nav/InquireDialog";
+import { MeshBackdrop } from "@/components/motion/MeshBackdrop";
 import { IMG, VID } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -29,13 +30,10 @@ export default function EventsPage() {
           className="absolute inset-0 h-full w-full"
         />
         <div
-          className="absolute inset-0 bg-linear-to-b from-ink/55 via-ink/40 to-ink"
+          className="absolute inset-0 bg-linear-to-b from-ink/65 via-ink/45 to-ink"
           aria-hidden
         />
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_120%,rgba(201,162,74,0.18),transparent_55%)]"
-          aria-hidden
-        />
+        <MeshBackdrop variant="cool" intensity="rich" />
         <div className="relative z-10 flex h-full flex-col items-start justify-end px-6 pb-24 lg:px-20">
           <Link
             href="/"

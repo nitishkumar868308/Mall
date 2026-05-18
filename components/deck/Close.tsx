@@ -5,6 +5,7 @@ import { Section } from "./Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { KineticType } from "@/components/motion/KineticType";
 import { LazyVideo } from "@/components/motion/LazyVideo";
+import { MeshBackdrop } from "@/components/motion/MeshBackdrop";
 import { Button } from "@/components/ui/Button";
 import { InquireDialog } from "@/components/nav/InquireDialog";
 import type { InquiryType } from "@/lib/types";
@@ -22,13 +23,10 @@ export function Close() {
         className="absolute inset-0 h-full w-full"
       />
       <div
-        className="absolute inset-0 bg-linear-to-b from-ink/75 via-ink/55 to-ink"
+        className="absolute inset-0 bg-linear-to-b from-ink/80 via-ink/55 to-ink"
         aria-hidden
       />
-      <div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(201,162,74,0.30),transparent_55%)]"
-        aria-hidden
-      />
+      <MeshBackdrop variant="warm" intensity="rich" />
 
       <div className="relative z-10 mx-auto flex min-h-svh max-w-5xl flex-col items-center justify-center px-6 py-32 text-center">
         <span className="text-[10px] uppercase tracking-[0.36em] text-gilt">

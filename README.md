@@ -21,7 +21,8 @@ A purpose-built interactive sales tool — not a website, not a slide deck. Eigh
 - **react-hook-form + zod** (Phase 2 events module form)
 - **Vitest** for unit tests (venue capacity logic)
 - **next/image** + Unsplash CDN for responsive AVIF/WebP imagery
-- **Pexels CDN** for cinematic background video
+- **Mixkit CDN** for cinematic background video (curated, theme-matched per chapter)
+- Animated **mesh-gradient backdrops** layered for atmospheric depth
 
 ## Getting started
 
@@ -97,18 +98,18 @@ lib/
 
 ## The 8 chapters
 
-1. **Hero** — full-bleed poster + Pexels video with layered overlays; kinetic headline; 3-stat ticker.
+1. **Hero** — full-bleed aerial-city video, layered mesh-gradient and overlays; kinetic headline; 3-stat ticker.
 2. **Why Here** — animated NY-metro map with driving-radius population callouts; demographic bento.
 3. **Retail** — dual-row tenant marquee; category breakdown; tenant-growth bar chart with SVG.
-4. **The Avenue (Luxury)** — slowed cinematic treatment; pull-quote; luxury-house roster.
+4. **The Avenue (Luxury)** — slowed cinematic fashion-runway video; pull-quote; luxury-house roster.
 5. **Dining & Lifestyle** — bento grid of food halls + restaurants, each with photography.
 6. **Attractions** — 4 hero tiles (DreamWorks · Nickelodeon · Big SNOW · Sea Life) with hover-video preview and full-screen lightbox.
-7. **Events & Platform** — venue stats, past activation roster with imagery, 3 segmented CTAs.
-8. **Close** — cinematic CTA with video, three primary actions (Lease · Sponsor · Book a Venue), contact footer.
+7. **Events & Platform** — concert-crowd video backdrop, venue stats, past activation roster with imagery, 3 segmented CTAs.
+8. **Close** — aerial-city video with mesh-gradient overlay, three primary actions (Lease · Sponsor · Book a Venue), contact footer.
 
 ## Phase 2 working module — `/events`
 
-- Hero with kinetic headline + photography + video.
+- Hero with kinetic headline, photography, and a slow-motion concert-crowd video backdrop.
 - **Live capacity calculator** — slider from 50 → 25,000 attendees. As you drag, venue cards filter in real time, sorted by the closeness of each venue's midpoint to the headcount. Animated with Framer Motion's layout transitions.
 - Inquiry form opens directly from the calculator CTA.
 
@@ -116,11 +117,11 @@ lib/
 
 ## Adding your own video assets
 
-The deck currently uses cinematic background clips hosted on the Pexels CDN, layered with Unsplash photography for posters. To swap in real American Dream footage:
+The deck currently uses theme-matched stock clips from the Mixkit CDN (aerial city for Hero/Close, fashion runway for Luxury, concert crowd for Events). To swap in real American Dream footage:
 
 1. Drop encoded clips into `public/videos/` (e.g. `hero.mp4`, `luxury.mp4`, `close.mp4`, `events-hero.mp4`).
-2. Update the `VID` map in `lib/images.ts` to point at the local paths (`/videos/hero.mp4`, etc.).
-3. Drop matching poster stills into `public/images/` and update the `IMG` map similarly.
+2. In `lib/images.ts`, point the `VID` map entries at the local paths (`hero: '/videos/hero.mp4'`, etc.).
+3. `LazyVideo` keeps the existing poster as instant first-paint and plays the local clip on top as soon as it intersects.
 
 Recommended encoding per clip (target ≤ 1.5 MB hero / ≤ 800 KB tile):
 

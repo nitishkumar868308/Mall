@@ -33,14 +33,14 @@ export const IMG = {
   evCelebrity:   `${U}1503095396549-807759245b35${PARAMS_SQ}`,
 } as const;
 
-const PEX = "https://videos.pexels.com/video-files/";
+const MX = "https://assets.mixkit.co/videos/";
 
 export const VID = {
-  hero:        `${PEX}3015527/3015527-hd_1920_1080_24fps.mp4`,
-  luxury:      `${PEX}856134/856134-hd_1920_1080_30fps.mp4`,
-  events:      `${PEX}1192116/1192116-hd_1920_1080_30fps.mp4`,
-  eventsHero:  `${PEX}855414/855414-hd_1920_1080_25fps.mp4`,
-  close:       `${PEX}854279/854279-hd_1920_1080_30fps.mp4`,
+  hero:       `${MX}49845/49845-1080.mp4`,
+  luxury:     `${MX}805/805-1080.mp4`,
+  events:     `${MX}14084/14084-720.mp4`,
+  eventsHero: `${MX}48507/48507-1080.mp4`,
+  close:      `${MX}49878/49878-1080.mp4`,
 } as const;
 
 export type ImageKey = keyof typeof IMG;
