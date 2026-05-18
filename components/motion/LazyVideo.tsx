@@ -30,7 +30,8 @@ export function LazyVideo({
 }: LazyVideoProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
-  const [errored, setErrored] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [posterError, setPosterError] = useState(false);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -52,6 +53,9 @@ export function LazyVideo({
     return () => io.disconnect();
   }, [rootMargin]);
 
+  const showPoster = poster && !posterError && (!mounted || videoError);
+  const showVideo = mounted && !videoError;
+
   return (
     <div
       ref={wrapRef}
@@ -59,25 +63,26 @@ export function LazyVideo({
       style={fallbackBg ? { background: fallbackBg } : undefined}
       aria-hidden
     >
-      {poster && (!mounted || errored) && (
+      {showPoster && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={poster}
           alt=""
+          onError={() => setPosterError(true)}
           className="absolute inset-0 h-full w-full object-cover"
           loading="lazy"
         />
       )}
-      {mounted && !errored && (
+      {showVideo && (
         <video
           src={src}
-          poster={poster}
+          poster={posterError ? undefined : poster}
           autoPlay={autoPlay}
           loop={loop}
           muted={muted}
           playsInline={playsInline}
           preload={preload}
-          onError={() => setErrored(true)}
+          onError={() => setVideoError(true)}
           className="absolute inset-0 h-full w-full object-cover"
         />
       )}

@@ -2,7 +2,7 @@ import type { Venue } from "@/lib/types";
 
 export function VenueCard({ venue }: { venue: Venue }) {
   return (
-    <article className="rounded-[var(--radius-card)] border border-ivory/10 bg-surface/60 p-6 transition-colors duration-500 hover:border-gilt/40">
+    <article className="rounded-card border border-ivory/10 bg-surface/60 p-6 transition-colors duration-500 hover:border-gilt/40">
       <div className="flex items-baseline justify-between gap-4">
         <h3 className="font-display text-2xl text-ivory">{venue.name}</h3>
         <span className="font-display text-base text-gilt whitespace-nowrap">

@@ -50,7 +50,7 @@ export function EventsPlatform() {
         <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {EVENTS_METRICS.map((m, i) => (
             <Reveal key={m.label} delay={i * 0.08}>
-              <li className="rounded-[var(--radius-card)] border border-ivory/10 bg-surface/60 p-6 backdrop-blur-sm transition-colors duration-500 hover:border-gilt/40">
+              <li className="rounded-card border border-ivory/10 bg-surface/60 p-6 backdrop-blur-sm transition-colors duration-500 hover:border-gilt/40">
                 <div className="font-display text-3xl text-gilt">
                   <Counter value={m.value} />
                 </div>
@@ -68,7 +68,7 @@ export function EventsPlatform() {
             {EVENT_HIGHLIGHTS.map((e, i) => (
               <Reveal key={e.title} delay={i * 0.06}>
                 <article
-                  className={`group relative h-60 overflow-hidden rounded-[var(--radius-card)] border border-ivory/10 bg-gradient-to-br ${TYPE_TONES[e.type]} p-6 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1`}
+                  className={`group relative h-60 overflow-hidden rounded-card border border-ivory/10 bg-linear-to-br ${TYPE_TONES[e.type]} p-6 transition-transform duration-700 ease-cinematic hover:-translate-y-1`}
                 >
                   <div
                     className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_60%)]"

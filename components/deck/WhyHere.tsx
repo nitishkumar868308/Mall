@@ -40,7 +40,7 @@ export function WhyHere() {
       <ul className="mx-auto mt-20 grid max-w-7xl grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
         {REACH_METRICS.map((m, i) => (
           <Reveal key={m.label} delay={i * 0.08}>
-            <li className="rounded-[var(--radius-card)] border border-ivory/10 bg-surface/60 p-6 backdrop-blur-sm transition-colors duration-500 hover:border-gilt/40">
+            <li className="rounded-card border border-ivory/10 bg-surface/60 p-6 backdrop-blur-sm transition-colors duration-500 hover:border-gilt/40">
               <div className="font-display text-3xl text-ivory">
                 <Counter value={m.value} />
               </div>

@@ -12,6 +12,7 @@ interface AttractionTileProps {
 export function AttractionTile({ attraction, onOpen }: AttractionTileProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hover, setHover] = useState(false);
+  const [videoOk, setVideoOk] = useState(true);
 
   function handleEnter() {
     setHover(true);
@@ -33,23 +34,31 @@ export function AttractionTile({ attraction, onOpen }: AttractionTileProps) {
       onMouseLeave={handleLeave}
       onFocus={handleEnter}
       onBlur={handleLeave}
-      className="group relative block h-[440px] w-full overflow-hidden rounded-[var(--radius-card)] border border-ivory/10 text-left transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gilt cursor-pointer"
-      style={{ background: attraction.posterColor }}
+      className="group relative block h-[440px] w-full overflow-hidden rounded-card border border-ivory/10 text-left transition-transform duration-700 ease-cinematic hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gilt cursor-pointer"
+      style={{
+        background: `linear-gradient(135deg, ${attraction.posterColor} 0%, color-mix(in srgb, ${attraction.posterColor} 40%, #0A0A0B) 100%)`,
+      }}
       aria-label={`Open ${attraction.name} details`}
     >
-      <video
-        ref={videoRef}
-        src={`/videos/${attraction.slug}.mp4`}
-        poster={`/images/${attraction.slug}-poster.jpg`}
-        muted
-        loop
-        playsInline
-        preload="none"
-        className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.16),transparent_60%)]"
+        aria-hidden
       />
+      {videoOk && (
+        <video
+          ref={videoRef}
+          src={`/videos/${attraction.slug}.mp4`}
+          muted
+          loop
+          playsInline
+          preload="none"
+          onError={() => setVideoOk(false)}
+          className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 ease-cinematic group-hover:scale-[1.04]"
+        />
+      )}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-transparent"
-        animate={{ opacity: hover ? 0.65 : 0.95 }}
+        className="absolute inset-0 bg-linear-to-t from-ink via-ink/45 to-transparent"
+        animate={{ opacity: hover ? 0.6 : 0.92 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         aria-hidden
       />

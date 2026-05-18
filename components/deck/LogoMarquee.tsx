@@ -19,8 +19,8 @@ export function LogoMarquee({
       className={cn("relative w-full overflow-hidden", className)}
       aria-hidden
     >
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-ink to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-ink to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-linear-to-r from-ink to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-linear-to-l from-ink to-transparent" />
       <ul
         className="flex gap-12 whitespace-nowrap will-change-transform motion-reduce:!animate-none"
         style={{

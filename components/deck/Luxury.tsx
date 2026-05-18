@@ -19,7 +19,7 @@ export function Luxury() {
         className="absolute inset-0 h-full w-full"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/60 to-ink"
+        className="absolute inset-0 bg-linear-to-b from-ink/85 via-ink/60 to-ink"
         aria-hidden
       />
       <div

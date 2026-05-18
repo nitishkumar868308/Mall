@@ -21,7 +21,7 @@ export function Hero() {
         className="absolute inset-0 h-full w-full"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink/90"
+        className="absolute inset-0 bg-linear-to-b from-ink/40 via-ink/20 to-ink/90"
         aria-hidden
       />
       <div

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function RegionMap() {
   return (
-    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-card)] border border-ivory/10 bg-surface">
+    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-card border border-ivory/10 bg-surface">
       <svg
         viewBox="0 0 400 500"
         className="absolute inset-0 h-full w-full"

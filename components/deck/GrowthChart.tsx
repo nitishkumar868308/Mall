@@ -14,7 +14,7 @@ export function GrowthChart() {
   const barW = (W - padding * 2) / TENANT_GROWTH.length - 16;
 
   return (
-    <div className="rounded-[var(--radius-card)] border border-ivory/10 bg-surface/60 p-6">
+    <div className="rounded-card border border-ivory/10 bg-surface/60 p-6">
       <div className="flex items-baseline justify-between">
         <h3 className="font-display text-2xl text-ivory">Tenants by year</h3>
         <span className="text-xs uppercase tracking-[0.18em] text-ivory/50">

@@ -36,7 +36,7 @@ export function ChapterRail() {
                 </span>
                 <span
                   className={cn(
-                    "block h-[1px] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                    "block h-[1px] transition-all duration-500 ease-cinematic",
                     isActive
                       ? "w-12 bg-gilt"
                       : "w-5 bg-ivory/30 group-hover:w-8 group-hover:bg-ivory",

@@ -51,7 +51,7 @@ export function Retail() {
 
       <div className="mx-auto mt-24 grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.2fr]">
         <Reveal>
-          <div className="rounded-[var(--radius-card)] border border-ivory/10 bg-surface/60 p-8">
+          <div className="rounded-card border border-ivory/10 bg-surface/60 p-8">
             <h3 className="font-display text-2xl text-ivory">
               Across every tier.
             </h3>

@@ -65,7 +65,7 @@ export function CapacityCalculator() {
           </ul>
         </div>
 
-        <div className="mt-10 rounded-[var(--radius-card)] border border-ivory/10 bg-surface/40 p-5 text-xs text-ivory/55">
+        <div className="mt-10 rounded-card border border-ivory/10 bg-surface/40 p-5 text-xs text-ivory/55">
           <p className="font-medium text-ivory/75">
             {matches.length} {matches.length === 1 ? "venue" : "venues"} match
           </p>
