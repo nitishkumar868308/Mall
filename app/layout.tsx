@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+import { LenisProvider } from "@/components/motion/LenisProvider";
+import { DeckHeader } from "@/components/nav/DeckHeader";
+import { ChapterRail } from "@/components/nav/ChapterRail";
+import { ProgressBar } from "@/components/nav/ProgressBar";
+import { KeyboardNav } from "@/components/nav/KeyboardNav";
+import { SkipLink } from "@/components/nav/SkipLink";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -32,7 +38,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
-      <body className="bg-ink text-ivory antialiased">{children}</body>
+      <body className="bg-ink text-ivory antialiased">
+        <SkipLink />
+        <LenisProvider />
+        <DeckHeader />
+        <ChapterRail />
+        <ProgressBar />
+        <KeyboardNav />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
