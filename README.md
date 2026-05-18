@@ -214,3 +214,4 @@ Add `output: "export"` + `images: { unoptimized: true }` to `next.config.ts`, th
 - Per-chapter analytics events to surface funnel drop-off.
 - Producer-facing **presenter mode** (hotkey-driven beats, side notes, laser pointer) for live sales calls.
 - Real footage from the American Dream press kit.
+"# Mall" 
