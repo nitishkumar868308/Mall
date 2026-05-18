@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { LazyVideo } from "@/components/motion/LazyVideo";
 import { KineticType } from "@/components/motion/KineticType";
 import { TENANTS } from "@/lib/data/tenants";
-import { IMG } from "@/lib/images";
+import { IMG, VID } from "@/lib/images";
 
 export function Luxury() {
   const houses = TENANTS.filter((t) => t.category === "luxury");
@@ -14,7 +14,7 @@ export function Luxury() {
       className="relative min-h-svh overflow-hidden"
     >
       <LazyVideo
-        src="/videos/luxury.mp4"
+        src={VID.luxury}
         poster={IMG.luxury}
         fallbackBg="linear-gradient(135deg, #1C1C24 0%, #0A0A0B 100%)"
         className="absolute inset-0 h-full w-full"

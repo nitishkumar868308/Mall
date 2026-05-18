@@ -22,7 +22,6 @@ export function RegionMap() {
           </linearGradient>
         </defs>
         <rect width="400" height="500" fill="url(#bgGrad)" />
-        {/* Abstract NJ/NY landmass */}
         <path
           d="M30 130 Q130 100 220 130 T395 110 L390 290 Q300 270 240 305 T120 365 L60 320 Z"
           fill="#14141A"
@@ -35,7 +34,6 @@ export function RegionMap() {
           stroke="#1C1C24"
           strokeWidth="1.5"
         />
-        {/* Faint grid lines */}
         {Array.from({ length: 8 }).map((_, i) => (
           <line
             key={`v-${i}`}
@@ -58,7 +56,6 @@ export function RegionMap() {
             strokeOpacity={0.4}
           />
         ))}
-        {/* Manhattan marker */}
         <circle cx="255" cy="275" r="3" fill="#8B8B90" />
         <text x="263" y="279" className="fill-ivory/60 text-[10px]">
           Manhattan
@@ -67,7 +64,6 @@ export function RegionMap() {
         <text x="306" y="339" className="fill-ivory/40 text-[9px]">
           Newark
         </text>
-        {/* American Dream glow + pulses */}
         <circle cx="220" cy="240" r="130" fill="url(#glow)" />
         {[45, 75, 105].map((r, i) => (
           <motion.circle
@@ -105,7 +101,6 @@ export function RegionMap() {
         >
           American Dream
         </text>
-        {/* Driving radii labels */}
         <text
           x="30"
           y="425"

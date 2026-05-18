@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Theme tokens. Defaults below = dark. The .light class on <html> swaps them. */
 :root {
   --color-ink: #0A0A0B;
   --color-ivory: #F6F1E7;

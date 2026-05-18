@@ -14,7 +14,6 @@ export function WhyHere() {
       eyebrow="II · Why Here"
       className="relative px-6 py-20 lg:px-16 lg:py-28"
     >
-      {/* Subtle full-section background image */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <Image
           src={IMG.nyMetro}

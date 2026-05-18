@@ -28,7 +28,6 @@ export function GrowthChart() {
         role="img"
         aria-label="Tenant growth from 2020 to 2025"
       >
-        {/* Faint gridlines */}
         {[0.25, 0.5, 0.75, 1].map((p) => (
           <line
             key={p}

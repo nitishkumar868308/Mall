@@ -6,7 +6,7 @@ import { LazyVideo } from "@/components/motion/LazyVideo";
 import { Button } from "@/components/ui/Button";
 import { CapacityCalculator } from "@/components/events/CapacityCalculator";
 import { InquireDialog } from "@/components/nav/InquireDialog";
-import { IMG } from "@/lib/images";
+import { IMG, VID } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Events — American Dream",
@@ -22,7 +22,7 @@ export default function EventsPage() {
         className="relative h-[80svh] min-h-130 overflow-hidden"
       >
         <LazyVideo
-          src="/videos/events-hero.mp4"
+          src={VID.eventsHero}
           poster={IMG.eventsHero}
           priority
           fallbackBg="radial-gradient(ellipse at 70% 30%, #1C1C24 0%, #0A0A0B 70%)"

@@ -8,7 +8,7 @@ import { LazyVideo } from "@/components/motion/LazyVideo";
 import { Button } from "@/components/ui/Button";
 import { InquireDialog } from "@/components/nav/InquireDialog";
 import type { InquiryType } from "@/lib/types";
-import { IMG } from "@/lib/images";
+import { IMG, VID } from "@/lib/images";
 
 export function Close() {
   const [tab, setTab] = useState<InquiryType | null>(null);
@@ -16,7 +16,7 @@ export function Close() {
   return (
     <Section id="close" className="relative min-h-svh overflow-hidden">
       <LazyVideo
-        src="/videos/close.mp4"
+        src={VID.close}
         poster={IMG.close}
         fallbackBg="radial-gradient(ellipse at 50% 50%, #1C1C24 0%, #0A0A0B 70%)"
         className="absolute inset-0 h-full w-full"

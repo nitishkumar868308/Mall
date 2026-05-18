@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { InquireDialog } from "@/components/nav/InquireDialog";
 import { Logo } from "@/components/nav/Logo";
-import { ThemeToggle } from "@/components/nav/ThemeToggle";
+// import { ThemeToggle } from "@/components/nav/ThemeToggle";
 
 export function DeckHeader() {
   return (
@@ -16,7 +16,7 @@ export function DeckHeader() {
         <Logo />
       </Link>
       <div className="pointer-events-auto flex items-center gap-2">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         <InquireDialog
           trigger={
             <Button size="sm" variant="ghost">

@@ -7,7 +7,7 @@ import { KineticType } from "@/components/motion/KineticType";
 import { Counter } from "@/components/motion/Counter";
 import { Reveal } from "@/components/motion/Reveal";
 import { HEADLINE_METRICS } from "@/lib/data/metrics";
-import { IMG } from "@/lib/images";
+import { IMG, VID } from "@/lib/images";
 
 export function Hero() {
   return (
@@ -16,13 +16,12 @@ export function Hero() {
       className="relative h-svh min-h-160 overflow-hidden"
     >
       <LazyVideo
-        src="/videos/hero.mp4"
+        src={VID.hero}
         poster={IMG.hero}
         priority
         fallbackBg="radial-gradient(ellipse at 30% 30%, #1C1C24 0%, #0A0A0B 70%)"
         className="absolute inset-0 h-full w-full"
       />
-      {/* Cinematic layered overlays — depth without obscuring */}
       <div
         className="absolute inset-0 bg-linear-to-b from-ink/55 via-ink/35 to-ink"
         aria-hidden

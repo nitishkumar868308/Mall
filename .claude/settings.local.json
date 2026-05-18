@@ -33,7 +33,11 @@
       "Bash(curl -s -o /dev/null -w \"dining=%{http_code} \" \"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400\")",
       "Bash(curl -s -o /dev/null -w \"kosher=%{http_code} \" \"https://images.unsplash.com/photo-1546554137-f86b9593a222?w=400\")",
       "Bash(xargs sed -i -e 's/py-32 lg:px-20 lg:py-48/py-20 lg:px-16 lg:py-28/g' -e 's/px-6 py-32 lg:px-20 lg:py-48/px-6 py-20 lg:px-16 lg:py-28/g' -e 's/px-6 py-32 lg:px-20$/px-6 py-20 lg:px-16/g' -e 's/pb-32 lg:px-20/pb-24 lg:px-16/g' -e s/lg:py-32/lg:py-24/g -e 's/py-24 lg:px-20 lg:py-32/py-16 lg:px-16 lg:py-24/g')",
-      "Bash(PORT=3300 npm run start)"
+      "Bash(PORT=3300 npm run start)",
+      "Bash(PORT=3400 npm run start)",
+      "Bash(curl -s 'http://localhost:3400/')",
+      "Bash(grep -oE 'videos\\\\.pexels\\\\.com[^\"\\\\\\\\]+')",
+      "Bash(grep -oE '[a-z0-9.]+\\\\.pexels\\\\.com[^\"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\,]+')"
     ]
   }
 }

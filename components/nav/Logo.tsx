@@ -5,8 +5,6 @@ interface LogoProps {
   size?: number;
 }
 
-// Custom SVG wordmark — geometric "AD" monogram + AMERICAN DREAM lockup.
-// Vector, sub-1KB, scales to any size, themable via currentColor.
 export function Logo({ className, size = 26 }: LogoProps) {
   return (
     <span
@@ -24,14 +22,12 @@ export function Logo({ className, size = 26 }: LogoProps) {
         aria-hidden
         className="shrink-0"
       >
-        {/* Diamond frame */}
         <path
           d="M20 2 L38 20 L20 38 L2 20 Z"
           stroke="currentColor"
           strokeWidth="1.6"
           opacity="0.9"
         />
-        {/* Inner mark — abstract A intersecting D */}
         <path
           d="M13 27 L20 12 L27 27 M16 22 L24 22"
           stroke="currentColor"

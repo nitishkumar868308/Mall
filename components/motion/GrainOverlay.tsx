@@ -1,6 +1,4 @@
 export function GrainOverlay() {
-  // SVG noise filter rendered as a fixed overlay. ~3KB cost, instant premium texture.
-  // Opacity + blend mode are theme-aware via CSS custom properties from globals.css.
   return (
     <div
       aria-hidden

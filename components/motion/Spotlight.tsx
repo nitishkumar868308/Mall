@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Desktop-only soft gilt spotlight that follows the cursor.
-// Skipped on touch devices and when prefers-reduced-motion is set.
 export function Spotlight() {
   const ref = useRef<HTMLDivElement>(null);
   const [enabled, setEnabled] = useState(false);
@@ -47,7 +45,7 @@ export function Spotlight() {
     <div
       ref={ref}
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-30 h-[640px] w-[640px] rounded-full opacity-30 mix-blend-screen"
+      className="pointer-events-none fixed left-0 top-0 z-30 h-160 w-160 rounded-full opacity-30 mix-blend-screen"
       style={{
         background:
           "radial-gradient(circle, rgba(201,162,74,0.45) 0%, rgba(201,162,74,0.12) 35%, transparent 70%)",

@@ -24,7 +24,6 @@ describe("filterVenuesByCapacity", () => {
   });
 
   it("orders matches by closeness to the midpoint of each venue's range", () => {
-    // 4500 → Plaza midpoint 5000 (dist 500), Expo midpoint 6500 (dist 2000). Plaza wins.
     const result = filterVenuesByCapacity(VENUES, 4500);
     expect(result[0]?.name).toBe("The Plaza");
   });
