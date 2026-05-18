@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   Dialog,
   DialogContent,
@@ -7,7 +8,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/Dialog";
-import { LazyVideo } from "@/components/motion/LazyVideo";
 import { Counter } from "@/components/motion/Counter";
 import type { Attraction } from "@/lib/types";
 
@@ -24,12 +24,16 @@ export function AttractionLightbox({
     <Dialog open={!!attraction} onOpenChange={(o) => !o && onClose()}>
       {attraction && (
         <DialogContent className="grid w-[min(960px,calc(100%-2rem))] gap-0 overflow-hidden p-0 lg:grid-cols-[1.2fr_1fr]">
-          <LazyVideo
-            src={`/videos/${attraction.slug}.mp4`}
-            poster={`/images/${attraction.slug}-poster.jpg`}
-            fallbackBg={attraction.posterColor}
-            className="relative aspect-video lg:aspect-auto lg:h-full"
-          />
+          <div className="relative aspect-video lg:aspect-auto lg:h-full">
+            <Image
+              src={attraction.image}
+              alt={attraction.name}
+              fill
+              sizes="(min-width:1024px) 55vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-ink/60 to-transparent lg:bg-linear-to-r" aria-hidden />
+          </div>
           <div className="flex flex-col gap-5 p-8">
             <DialogHeader>
               <span className="text-[10px] uppercase tracking-[0.28em] text-gilt">

@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface LazyVideoProps {
-  src: string;
-  poster?: string;
+  src?: string;
+  poster: string;
+  alt?: string;
   className?: string;
   autoPlay?: boolean;
   loop?: boolean;
@@ -14,11 +16,13 @@ interface LazyVideoProps {
   rootMargin?: string;
   preload?: "none" | "metadata" | "auto";
   fallbackBg?: string;
+  priority?: boolean;
 }
 
 export function LazyVideo({
   src,
   poster,
+  alt = "",
   className,
   autoPlay = true,
   loop = true,
@@ -27,13 +31,15 @@ export function LazyVideo({
   rootMargin = "200px",
   preload = "metadata",
   fallbackBg,
+  priority = false,
 }: LazyVideoProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  const [videoError, setVideoError] = useState(false);
-  const [posterError, setPosterError] = useState(false);
+  const [mountVideo, setMountVideo] = useState(false);
+  const [videoOk, setVideoOk] = useState(true);
+  const [posterOk, setPosterOk] = useState(true);
 
   useEffect(() => {
+    if (!src) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) return;
     const node = wrapRef.current;
@@ -42,7 +48,7 @@ export function LazyVideo({
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            setMounted(true);
+            setMountVideo(true);
             io.disconnect();
           }
         }
@@ -51,38 +57,35 @@ export function LazyVideo({
     );
     io.observe(node);
     return () => io.disconnect();
-  }, [rootMargin]);
-
-  const showPoster = poster && !posterError && (!mounted || videoError);
-  const showVideo = mounted && !videoError;
+  }, [src, rootMargin]);
 
   return (
     <div
       ref={wrapRef}
       className={cn("relative overflow-hidden", className)}
       style={fallbackBg ? { background: fallbackBg } : undefined}
-      aria-hidden
+      aria-hidden={alt ? undefined : true}
     >
-      {showPoster && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+      {posterOk && (
+        <Image
           src={poster}
-          alt=""
-          onError={() => setPosterError(true)}
-          className="absolute inset-0 h-full w-full object-cover"
-          loading="lazy"
+          alt={alt}
+          fill
+          priority={priority}
+          sizes="100vw"
+          onError={() => setPosterOk(false)}
+          className="object-cover"
         />
       )}
-      {showVideo && (
+      {mountVideo && videoOk && src && (
         <video
           src={src}
-          poster={posterError ? undefined : poster}
           autoPlay={autoPlay}
           loop={loop}
           muted={muted}
           playsInline={playsInline}
           preload={preload}
-          onError={() => setVideoError(true)}
+          onError={() => setVideoOk(false)}
           className="absolute inset-0 h-full w-full object-cover"
         />
       )}

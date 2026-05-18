@@ -45,6 +45,7 @@ export interface Attraction {
   description: string;
   stats: AttractionStat[];
   posterColor: string;
+  image: string;
 }
 
 export interface Venue {

@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { LazyVideo } from "@/components/motion/LazyVideo";
 import { KineticType } from "@/components/motion/KineticType";
 import { TENANTS } from "@/lib/data/tenants";
+import { IMG } from "@/lib/images";
 
 export function Luxury() {
   const houses = TENANTS.filter((t) => t.category === "luxury");
@@ -10,24 +11,24 @@ export function Luxury() {
   return (
     <Section
       id="luxury"
-      className="relative min-h-[100svh] overflow-hidden"
+      className="relative min-h-svh overflow-hidden"
     >
       <LazyVideo
         src="/videos/luxury.mp4"
-        poster="/images/luxury-poster.jpg"
+        poster={IMG.luxury}
         fallbackBg="linear-gradient(135deg, #1C1C24 0%, #0A0A0B 100%)"
         className="absolute inset-0 h-full w-full"
       />
       <div
-        className="absolute inset-0 bg-linear-to-b from-ink/85 via-ink/60 to-ink"
+        className="absolute inset-0 bg-linear-to-b from-ink/75 via-ink/55 to-ink"
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,rgba(201,162,74,0.10),transparent_55%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,rgba(201,162,74,0.16),transparent_55%)]"
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-6 py-40 lg:min-h-[100svh] lg:px-20">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col justify-center px-6 py-40 lg:min-h-svh lg:px-20">
         <span className="text-[10px] uppercase tracking-[0.36em] text-gilt">
           IV · The Avenue
         </span>
@@ -47,7 +48,7 @@ export function Luxury() {
             {houses.map((h) => (
               <li
                 key={h.name}
-                className="font-display text-xl tracking-wide text-ivory/85"
+                className="font-display text-xl tracking-wide text-ivory/90"
               >
                 {h.name}
               </li>
@@ -56,7 +57,7 @@ export function Luxury() {
         </Reveal>
 
         <Reveal delay={0.9}>
-          <p className="mt-16 max-w-md text-sm text-ivory/60">
+          <p className="mt-16 max-w-md text-sm text-ivory/65">
             Discreet entrances. Concierge service. Private appointments. A
             wing designed for the world's most considered houses.
           </p>

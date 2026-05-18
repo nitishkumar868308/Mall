@@ -1,4 +1,5 @@
 import type { Attraction } from "@/lib/types";
+import { IMG } from "@/lib/images";
 
 export const ATTRACTIONS: Attraction[] = [
   {
@@ -13,6 +14,7 @@ export const ATTRACTIONS: Attraction[] = [
       { label: "Wave pool capacity", value: "1.5M gal" },
     ],
     posterColor: "#0e6cff",
+    image: IMG.dreamworks,
   },
   {
     slug: "nickelodeon",
@@ -26,6 +28,7 @@ export const ATTRACTIONS: Attraction[] = [
       { label: "Tallest drop", value: "227 ft" },
     ],
     posterColor: "#ff7a00",
+    image: IMG.nickelodeon,
   },
   {
     slug: "big-snow",
@@ -39,6 +42,7 @@ export const ATTRACTIONS: Attraction[] = [
       { label: "Temperature",   value: "28 °F" },
     ],
     posterColor: "#cdd9ec",
+    image: IMG.bigSnow,
   },
   {
     slug: "sea-life",
@@ -52,5 +56,6 @@ export const ATTRACTIONS: Attraction[] = [
       { label: "Mini-golf holes", value: "18" },
     ],
     posterColor: "#0fb0a3",
+    image: IMG.seaLife,
   },
 ];

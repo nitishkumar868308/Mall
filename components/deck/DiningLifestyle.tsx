@@ -1,49 +1,51 @@
+import Image from "next/image";
 import { Section } from "./Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { KineticType } from "@/components/motion/KineticType";
+import { IMG } from "@/lib/images";
 
-const TILES = [
+const TILES: { label: string; blurb: string; span: string; img: string }[] = [
   {
     label: "Hudson Food Hall",
     blurb: "Two-floor culinary marketplace",
     span: "sm:col-span-2 sm:row-span-2",
-    tone: "from-amber-900/40 via-amber-700/15 to-transparent",
+    img: IMG.diningHall,
   },
   {
     label: "Korean Food Hall",
     blurb: "12 vendors, one block of Seoul",
     span: "sm:col-span-1",
-    tone: "from-rose-900/40 via-rose-700/15 to-transparent",
+    img: IMG.diningKorean,
   },
   {
     label: "Kosher Food Hall",
     blurb: "Largest in the Northeast",
     span: "sm:col-span-1",
-    tone: "from-blue-900/40 via-blue-700/15 to-transparent",
+    img: IMG.diningKosher,
   },
   {
     label: "Carpaccio",
     blurb: "Italian fine dining",
     span: "sm:col-span-1",
-    tone: "from-stone-800/50 via-stone-600/15 to-transparent",
+    img: IMG.diningItalian,
   },
   {
     label: "Saddle River Café",
     blurb: "All-day social spot",
     span: "sm:col-span-1",
-    tone: "from-emerald-900/40 via-emerald-700/15 to-transparent",
+    img: IMG.diningCafe,
   },
   {
     label: "Shake Shack",
     blurb: "An American staple",
     span: "sm:col-span-1",
-    tone: "from-yellow-900/40 via-yellow-700/15 to-transparent",
+    img: IMG.diningBurger,
   },
   {
     label: "Toastique",
     blurb: "Toast, coffee, lifestyle",
     span: "sm:col-span-1",
-    tone: "from-orange-900/40 via-orange-700/15 to-transparent",
+    img: IMG.diningToast,
   },
 ];
 
@@ -52,7 +54,7 @@ export function DiningLifestyle() {
     <Section
       id="dining"
       eyebrow="V · Dining"
-      className="px-6 py-32 lg:px-20 lg:py-48"
+      className="px-6 py-20 lg:px-16 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <span className="text-[10px] uppercase tracking-[0.32em] text-gilt">
@@ -74,22 +76,21 @@ export function DiningLifestyle() {
         <div className="mt-16 grid auto-rows-[200px] grid-cols-2 gap-4 sm:grid-cols-3 sm:auto-rows-[220px] lg:grid-cols-4">
           {TILES.map((t, i) => (
             <Reveal key={t.label} delay={i * 0.06} className={t.span}>
-              <article
-                className={`group relative h-full overflow-hidden rounded-card border border-ivory/10 bg-linear-to-br ${t.tone} p-6 transition-transform duration-700 ease-cinematic hover:-translate-y-1`}
-              >
-                <div
-                  className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.08),transparent_60%)]"
-                  aria-hidden
+              <article className="group relative h-full overflow-hidden rounded-card border border-ivory/10 transition-transform duration-700 ease-cinematic hover:-translate-y-1">
+                <Image
+                  src={t.img}
+                  alt={t.label}
+                  fill
+                  sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
+                  className="object-cover transition-transform duration-1000 ease-cinematic group-hover:scale-110"
                 />
-                <div
-                  className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-ink/60 to-transparent"
-                  aria-hidden
-                />
-                <div className="relative flex h-full flex-col justify-end">
+                <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/35 to-transparent" aria-hidden />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.10),transparent_60%)]" aria-hidden />
+                <div className="relative flex h-full flex-col justify-end p-6">
                   <h3 className="font-display text-xl text-ivory lg:text-2xl">
                     {t.label}
                   </h3>
-                  <p className="mt-1 text-xs text-ivory/65">{t.blurb}</p>
+                  <p className="mt-1 text-xs text-ivory/75">{t.blurb}</p>
                 </div>
               </article>
             </Reveal>

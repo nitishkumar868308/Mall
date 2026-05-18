@@ -23,7 +23,17 @@
       "Bash(curl -s -o /dev/null -w \"/leasing=%{http_code}\\\\n\" http://localhost:3100/leasing)",
       "Bash(curl -s 'http://localhost:3100/')",
       "Bash(curl -s 'http://localhost:3100/events')",
-      "Bash(taskkill //F //IM node.exe)"
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(xargs sed -i -e 's/h-\\\\[100svh\\\\]/h-svh/g' -e 's/min-h-\\\\[100svh\\\\]/min-h-svh/g' -e 's/min-h-\\\\[640px\\\\]/min-h-160/g' -e 's/min-h-\\\\[520px\\\\]/min-h-130/g' -e 's/h-\\\\[440px\\\\]/h-110/g' -e 's/leading-\\\\[1\\\\]/leading-none/g' -e s/bg-gradient-to-/bg-linear-to-/g -e 's/rounded-\\\\[var\\(--radius-card\\)\\\\]/rounded-card/g' -e 's/ease-\\\\[cubic-bezier\\(0\\\\.22,1,0\\\\.36,1\\)\\\\]/ease-cinematic/g')",
+      "Bash(PORT=3200 npm run start)",
+      "Bash(curl -s 'http://localhost:3200/')",
+      "Bash(curl -s -o /dev/null -w \"hero=%{http_code} \" \"https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400\")",
+      "Bash(curl -s -o /dev/null -w \"ny=%{http_code} \" \"https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400\")",
+      "Bash(curl -s -o /dev/null -w \"luxury=%{http_code} \" \"https://images.unsplash.com/photo-1604176354204-9268737828e4?w=400\")",
+      "Bash(curl -s -o /dev/null -w \"dining=%{http_code} \" \"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400\")",
+      "Bash(curl -s -o /dev/null -w \"kosher=%{http_code} \" \"https://images.unsplash.com/photo-1546554137-f86b9593a222?w=400\")",
+      "Bash(xargs sed -i -e 's/py-32 lg:px-20 lg:py-48/py-20 lg:px-16 lg:py-28/g' -e 's/px-6 py-32 lg:px-20 lg:py-48/px-6 py-20 lg:px-16 lg:py-28/g' -e 's/px-6 py-32 lg:px-20$/px-6 py-20 lg:px-16/g' -e 's/pb-32 lg:px-20/pb-24 lg:px-16/g' -e s/lg:py-32/lg:py-24/g -e 's/py-24 lg:px-20 lg:py-32/py-16 lg:px-16 lg:py-24/g')",
+      "Bash(PORT=3300 npm run start)"
     ]
   }
 }

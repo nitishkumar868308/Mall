@@ -6,6 +6,7 @@ import { LazyVideo } from "@/components/motion/LazyVideo";
 import { Button } from "@/components/ui/Button";
 import { CapacityCalculator } from "@/components/events/CapacityCalculator";
 import { InquireDialog } from "@/components/nav/InquireDialog";
+import { IMG } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Events — American Dream",
@@ -18,16 +19,17 @@ export default function EventsPage() {
     <>
       <section
         id="events-hero"
-        className="relative h-[80svh] min-h-[520px] overflow-hidden"
+        className="relative h-[80svh] min-h-130 overflow-hidden"
       >
         <LazyVideo
           src="/videos/events-hero.mp4"
-          poster="/images/events-hero-poster.jpg"
+          poster={IMG.eventsHero}
+          priority
           fallbackBg="radial-gradient(ellipse at 70% 30%, #1C1C24 0%, #0A0A0B 70%)"
           className="absolute inset-0 h-full w-full"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/30 to-ink"
+          className="absolute inset-0 bg-linear-to-b from-ink/55 via-ink/40 to-ink"
           aria-hidden
         />
         <div
@@ -47,7 +49,7 @@ export default function EventsPage() {
           <KineticType
             as="h1"
             text="Find your venue. Live."
-            className="mt-3 max-w-3xl font-display font-light text-[clamp(2.4rem,6vw,5.6rem)] leading-[1] tracking-tight"
+            className="mt-3 max-w-3xl font-display font-light text-[clamp(2.4rem,6vw,5.6rem)] leading-none tracking-tight"
           />
           <Reveal delay={0.6}>
             <p className="mt-8 max-w-xl text-base text-ivory/70">
@@ -59,12 +61,12 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 lg:px-20 lg:py-32">
+      <section className="px-6 py-24 lg:px-20 lg:py-24">
         <CapacityCalculator />
       </section>
 
-      <section className="px-6 pb-32 lg:px-20">
-        <div className="mx-auto max-w-3xl rounded-[var(--radius-card)] border border-ivory/10 bg-surface/60 p-12 text-center">
+      <section className="px-6 pb-24 lg:px-16">
+        <div className="mx-auto max-w-3xl rounded-card border border-ivory/10 bg-surface/60 p-12 text-center">
           <h2 className="font-display text-3xl text-ivory lg:text-4xl">
             Ready to book?
           </h2>

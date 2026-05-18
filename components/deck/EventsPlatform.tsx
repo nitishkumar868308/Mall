@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Section } from "./Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { KineticType } from "@/components/motion/KineticType";
@@ -11,14 +12,15 @@ import { InquireDialog } from "@/components/nav/InquireDialog";
 import { EVENTS_METRICS } from "@/lib/data/metrics";
 import { EVENT_HIGHLIGHTS } from "@/lib/data/events";
 import type { EventType } from "@/lib/types";
+import { IMG } from "@/lib/images";
 
-const TYPE_TONES: Record<EventType, string> = {
-  concert: "from-fuchsia-900/40 via-fuchsia-700/15 to-transparent",
-  launch: "from-cyan-900/40 via-cyan-700/15 to-transparent",
-  convention: "from-indigo-900/40 via-indigo-700/15 to-transparent",
-  activation: "from-orange-900/40 via-orange-700/15 to-transparent",
-  celebrity: "from-rose-900/40 via-rose-700/15 to-transparent",
-  seasonal: "from-emerald-900/40 via-emerald-700/15 to-transparent",
+const TYPE_IMAGE: Record<EventType, string> = {
+  concert: IMG.evConcert,
+  launch: IMG.evSneaker,
+  convention: IMG.evAuto,
+  activation: IMG.evFashion,
+  celebrity: IMG.evCelebrity,
+  seasonal: IMG.evHoliday,
 };
 
 export function EventsPlatform() {
@@ -28,9 +30,21 @@ export function EventsPlatform() {
     <Section
       id="events-platform"
       eyebrow="VII · Events"
-      className="px-6 py-32 lg:px-20 lg:py-48"
+      className="relative px-6 py-20 lg:px-16 lg:py-28"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <Image
+          src={IMG.events}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-20"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-ink via-ink/92 to-ink" aria-hidden />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl">
         <span className="text-[10px] uppercase tracking-[0.32em] text-gilt">
           07 · Events & Platform
         </span>
@@ -50,7 +64,7 @@ export function EventsPlatform() {
         <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {EVENTS_METRICS.map((m, i) => (
             <Reveal key={m.label} delay={i * 0.08}>
-              <li className="rounded-card border border-ivory/10 bg-surface/60 p-6 backdrop-blur-sm transition-colors duration-500 hover:border-gilt/40">
+              <li className="rounded-card border border-ivory/10 bg-surface/70 p-6 backdrop-blur-md transition-colors duration-500 hover:border-gilt/40">
                 <div className="font-display text-3xl text-gilt">
                   <Counter value={m.value} />
                 </div>
@@ -67,14 +81,16 @@ export function EventsPlatform() {
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {EVENT_HIGHLIGHTS.map((e, i) => (
               <Reveal key={e.title} delay={i * 0.06}>
-                <article
-                  className={`group relative h-60 overflow-hidden rounded-card border border-ivory/10 bg-linear-to-br ${TYPE_TONES[e.type]} p-6 transition-transform duration-700 ease-cinematic hover:-translate-y-1`}
-                >
-                  <div
-                    className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_60%)]"
-                    aria-hidden
+                <article className="group relative h-64 overflow-hidden rounded-card border border-ivory/10 transition-transform duration-700 ease-cinematic hover:-translate-y-1">
+                  <Image
+                    src={TYPE_IMAGE[e.type]}
+                    alt={e.title}
+                    fill
+                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-1000 ease-cinematic group-hover:scale-110"
                   />
-                  <div className="relative flex h-full flex-col justify-between">
+                  <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/55 to-ink/15" aria-hidden />
+                  <div className="relative flex h-full flex-col justify-between p-6">
                     <span className="text-[10px] uppercase tracking-[0.28em] text-gilt">
                       {e.type} · {e.year}
                     </span>
@@ -82,7 +98,7 @@ export function EventsPlatform() {
                       <h4 className="font-display text-xl text-ivory">
                         {e.title}
                       </h4>
-                      <p className="mt-2 text-xs leading-relaxed text-ivory/65">
+                      <p className="mt-2 text-xs leading-relaxed text-ivory/75">
                         {e.blurb}
                       </p>
                     </div>

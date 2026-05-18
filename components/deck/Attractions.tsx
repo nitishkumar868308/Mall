@@ -16,7 +16,7 @@ export function Attractions() {
     <Section
       id="attractions"
       eyebrow="VI · Attractions"
-      className="px-6 py-32 lg:px-20 lg:py-48"
+      className="px-6 py-20 lg:px-16 lg:py-28"
     >
       <div className="mx-auto max-w-7xl">
         <span className="text-[10px] uppercase tracking-[0.32em] text-gilt">

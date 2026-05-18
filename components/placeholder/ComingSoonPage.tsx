@@ -19,7 +19,7 @@ export function ComingSoonPage({
   inquiryTab,
 }: ComingSoonPageProps) {
   return (
-    <section className="relative flex min-h-[100svh] flex-col items-start justify-center overflow-hidden px-6 py-32 lg:px-20">
+    <section className="relative flex min-h-svh flex-col items-start justify-center overflow-hidden px-6 py-24 lg:px-16">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(201,162,74,0.10),transparent_60%)]"

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Section } from "./Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { KineticType } from "@/components/motion/KineticType";
@@ -5,6 +6,7 @@ import { LogoMarquee } from "./LogoMarquee";
 import { GrowthChart } from "./GrowthChart";
 import { TENANTS } from "@/lib/data/tenants";
 import type { TenantCategory } from "@/lib/types";
+import { IMG } from "@/lib/images";
 
 const CATEGORY_LABELS: { label: string; key: TenantCategory }[] = [
   { label: "Anchor", key: "anchor" },
@@ -29,9 +31,21 @@ export function Retail() {
     <Section
       id="retail"
       eyebrow="III · Retail"
-      className="px-6 py-32 lg:px-20 lg:py-48"
+      className="relative px-6 py-20 lg:px-16 lg:py-28"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <Image
+          src={IMG.retail}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-15"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-ink via-ink/92 to-ink" aria-hidden />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl">
         <span className="text-[10px] uppercase tracking-[0.32em] text-gilt">
           03 · Retail
         </span>
@@ -42,16 +56,16 @@ export function Retail() {
         />
       </div>
 
-      <div className="mt-20">
+      <div className="relative mt-20">
         <LogoMarquee items={row1} speed={70} />
         <div className="mt-4">
           <LogoMarquee items={row2} reverse speed={85} />
         </div>
       </div>
 
-      <div className="mx-auto mt-24 grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.2fr]">
+      <div className="relative mx-auto mt-24 grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.2fr]">
         <Reveal>
-          <div className="rounded-card border border-ivory/10 bg-surface/60 p-8">
+          <div className="rounded-card border border-ivory/10 bg-surface/70 p-8 backdrop-blur-md">
             <h3 className="font-display text-2xl text-ivory">
               Across every tier.
             </h3>

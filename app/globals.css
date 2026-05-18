@@ -1,7 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@theme {
+/* Theme tokens. Defaults below = dark. The .light class on <html> swaps them. */
+:root {
   --color-ink: #0A0A0B;
   --color-ivory: #F6F1E7;
   --color-gilt: #C9A24A;
@@ -9,26 +10,51 @@
   --color-muted: #8B8B90;
   --color-surface: #14141A;
   --color-surface-2: #1C1C24;
+  --color-line: rgba(246, 241, 231, 0.10);
+  --grain-opacity: 0.05;
+  --grain-blend: overlay;
+  color-scheme: dark;
+}
+
+:root.light {
+  --color-ink: #F6F1E7;
+  --color-ivory: #0A0A0B;
+  --color-gilt: #9F7B2A;
+  --color-gilt-soft: #C9A24A;
+  --color-muted: #5C5C63;
+  --color-surface: #ECE5D4;
+  --color-surface-2: #E2DBC8;
+  --color-line: rgba(10, 10, 11, 0.12);
+  --grain-opacity: 0.04;
+  --grain-blend: multiply;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ivory: var(--color-ivory);
+  --color-gilt: var(--color-gilt);
+  --color-gilt-soft: var(--color-gilt-soft);
+  --color-muted: var(--color-muted);
+  --color-surface: var(--color-surface);
+  --color-surface-2: var(--color-surface-2);
+  --color-line: var(--color-line);
 
   --font-display: var(--font-display), Georgia, serif;
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 
   --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
-
   --radius-card: 18px;
   --radius-pill: 999px;
 }
 
 @layer base {
-  :root {
-    color-scheme: dark;
-  }
   html {
     background: var(--color-ink);
     color: var(--color-ivory);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    scroll-behavior: smooth;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
   body {
     font-family: var(--font-sans);

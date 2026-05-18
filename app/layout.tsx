@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/motion/LenisProvider";
+import { GrainOverlay } from "@/components/motion/GrainOverlay";
+import { Spotlight } from "@/components/motion/Spotlight";
 import { DeckHeader } from "@/components/nav/DeckHeader";
 import { ChapterRail } from "@/components/nav/ChapterRail";
 import { ProgressBar } from "@/components/nav/ProgressBar";
 import { KeyboardNav } from "@/components/nav/KeyboardNav";
 import { SkipLink } from "@/components/nav/SkipLink";
+import { themeBootScript } from "@/components/nav/ThemeToggle";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -37,15 +41,22 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
+      <head>
+        <Script id="theme-boot" strategy="beforeInteractive">
+          {themeBootScript}
+        </Script>
+      </head>
       <body className="bg-ink text-ivory antialiased">
         <SkipLink />
         <LenisProvider />
+        <Spotlight />
         <DeckHeader />
         <ChapterRail />
         <ProgressBar />
         <KeyboardNav />
         <main>{children}</main>
+        <GrainOverlay />
       </body>
     </html>
   );
