@@ -191,20 +191,12 @@ A few interaction patterns lean on AI-shaped thinking even without a model runni
 
 ## Deploy
 
-### Vercel (recommended)
+Deployed on **Vercel**:
 
 ```bash
 npx vercel
 npx vercel --prod
 ```
-
-### Netlify
-
-Point Netlify at the repo with the `@netlify/plugin-nextjs` runtime.
-
-### Static export
-
-Add `output: "export"` + `images: { unoptimized: true }` to `next.config.ts`, then `npm run build`. The static site lands in `out/`.
 
 ## What I'd do with more time
 
