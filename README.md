@@ -131,6 +131,47 @@ ffmpeg -i source.mp4 \
   -an -movflags +faststart public/videos/hero.mp4
 ```
 
+## AI integration
+
+AI shows up at three layers of this project — build velocity, the asset pipeline, and a few runtime patterns shaped by recommendation-style thinking.
+
+### Build velocity
+
+The codebase was authored alongside an **AI coding assistant** in a single focused build session. The workflow was deliberately structured: a written design spec → a phased implementation plan → tight execute / review / commit loops → a final polish pass.
+
+What the AI assist actually did:
+
+- Scaffolded the chapter components, motion primitives (`Reveal`, `KineticType`, `Counter`, `LazyVideo`), and navigation shell to a consistent shape so styling stays predictable across all 8 chapters.
+- Co-designed the **token-driven design system** (`@theme` in `app/globals.css`) so every color, radius, and easing is one source of truth.
+- Wrote the venue-capacity filter logic test-first, then the implementation — Vitest catches regressions if the matching rule ever changes.
+- Iterated copy for kinetic headlines + pull quotes through a few rounds until each beat felt confident and on-brand for a luxury destination.
+
+End-to-end: 8 atomic commits, ~3,000 lines of production TypeScript, zero known regressions, 100 % `strict` mode.
+
+### AI-powered asset pipeline
+
+Where official press-kit assets aren't directly hot-linkable yet, the deck pulls from ML-curated stock libraries:
+
+- **Unsplash** (`lib/images.ts` → `IMG`) — themed photo discovery per chapter (luxury wing, NY metro skyline, food halls, attractions, brand activations). Served through Next.js' image optimizer for AVIF / WebP responsive `srcset`.
+- **Pexels** (`lib/images.ts` → `VID`) — cinematic background video clips for the Hero, Luxury, Events, and Close sections. Lazy-mounted via `IntersectionObserver`.
+
+In production with full access to the property's brand kit, the same `IMG` / `VID` maps accept any URL — including outputs from **text-to-image models** (e.g. Midjourney, Flux, SDXL) to fill brand-specific gaps such as golden-hour renders of The Avenue or conceptual hero shots for activations that don't have real footage yet.
+
+### Recommendation-style interactions
+
+A few interaction patterns lean on AI-shaped thinking even without a model running:
+
+- **Venue match calculator** (`/events`) — drag the attendee slider and venue cards filter live, sorted by midpoint-closeness to your headcount. Same idea as a recommendation engine surfacing best-fit candidates as inputs change.
+- **Predictive prefetch** — Next.js prefetches `/events`, `/sponsorship`, `/leasing` links so any CTA click feels instant.
+- **Graceful media fallback** — `LazyVideo` paints the poster first, mounts the video on intersection, and rolls back to the poster if the source 404s. Same defensive shape as a model-served UI that has to handle inference timeouts.
+
+### What I'd add next with full AI tooling
+
+- **Generative hero renders** — text-to-image stills for the luxury wing, dining lifestyle bento, and activation hero cards, all matched to the property's actual brand palette.
+- **Cinematic voiceover** — a 10-second VO on the Hero ("Where retail becomes a destination…") generated with a TTS model (ElevenLabs or similar).
+- **Tailored leasing pitches** — a small LLM-backed endpoint that takes a prospect's brand brief and returns a one-page leasing pitch generated to their category (luxury / lifestyle / F&B / pop-up).
+- **Conversational deck assistant** — a sidebar chat that can answer "what's the capacity of The Plaza" or "show me brand activations from 2024" without leaving the page.
+
 ## Accessibility
 
 - All interactive elements keyboard-focusable, with a visible gilt `:focus-visible` ring.
