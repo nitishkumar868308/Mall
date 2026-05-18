@@ -7,6 +7,7 @@ import { GrainOverlay } from "@/components/motion/GrainOverlay";
 import { Spotlight } from "@/components/motion/Spotlight";
 import { DeckHeader } from "@/components/nav/DeckHeader";
 import { ChapterRail } from "@/components/nav/ChapterRail";
+import { MobileChapterMenu } from "@/components/nav/MobileChapterMenu";
 import { ProgressBar } from "@/components/nav/ProgressBar";
 import { KeyboardNav } from "@/components/nav/KeyboardNav";
 import { SkipLink } from "@/components/nav/SkipLink";
@@ -53,6 +54,7 @@ export default function RootLayout({
         <Spotlight />
         <DeckHeader />
         <ChapterRail />
+        <MobileChapterMenu />
         <ProgressBar />
         <KeyboardNav />
         <main>{children}</main>
